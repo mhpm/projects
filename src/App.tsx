@@ -1,10 +1,9 @@
-import { Header, TableContainer } from "components";
+import Game from "pages/game/game";
 
 function App() {
   return (
     <>
-      <Header></Header>
-      <TableContainer></TableContainer>
+      <Game></Game>
     </>
   );
 }

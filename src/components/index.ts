@@ -1,5 +1,4 @@
-import { Button } from "./Elements";
-import { Header, TodoList } from "./Compounds";
-import { TodoListContainer, TableContainer } from "./Containers";
+import { Button } from "./elements";
+import { Header, TodoList } from "./compounds";
 
-export { Button, Header, TodoList, TodoListContainer, TableContainer };
+export { Button, Header, TodoList };
