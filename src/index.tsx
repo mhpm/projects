@@ -1,19 +1,32 @@
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import "./index.css";
-import App from "./App";
-import { ThemeProvider } from "styled-components";
-import { LightTheme } from "./global/styles";
+import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux"
+import { store } from "./redux/store"
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from "styled-components"
 
+const theme = {
+  low: "gray",
+  normal: "orange",
+  high: "tomato",
+}
 
 // @ts-ignore
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root: any = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <ThemeProvider theme={LightTheme}>
-    <App />
-  </ThemeProvider>,
-  document.getElementById("root")
+  <React.StrictMode>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
+  </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

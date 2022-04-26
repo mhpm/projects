@@ -1,4 +1,4 @@
 import { Button } from "./elements";
-import { Header, TodoList } from "./compounds";
+import { Header, TodoList, ProgressBar } from "./compounds";
 
-export { Button, Header, TodoList };
+export { Button, Header, TodoList, ProgressBar };

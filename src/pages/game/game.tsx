@@ -8,7 +8,7 @@ const Game = () => {
     <>
       <h1>Game Page</h1>
       {cardImages.map((img) => (
-        <img key={img.id} src={img.src} width={150} height={150} alt="image"></img>
+        <img key={img.id} src={img.src} width={150} height={150} alt="cardImage"></img>
       ))}
     </>
   );
