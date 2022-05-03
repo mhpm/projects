@@ -1,4 +1,4 @@
-const DATA = {
+const TASK_LIST = {
   todo: [
     {
       id: 11,
@@ -47,6 +47,6 @@ const DATA = {
       category: "done",
     },
   ],
-}
+};
 
-export default DATA
+export default TASK_LIST;

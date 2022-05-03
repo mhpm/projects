@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-import { setCard, updateDataStartAsync } from "redux/task-manager/taskActions";
+import { setTask, updateTaskListStartAsync } from "redux/task-manager/taskActions";
 import { useDispatch, useSelector } from "react-redux";
 import { selectTaskData } from "redux/task-manager/taskSelectors";
 
@@ -37,37 +37,37 @@ const BtnDelete = styled.div`
   color: gray;
 `;
 
-const Card = ({ info }: any) => {
+const Task = ({ task }: any) => {
   const dispatch = useDispatch();
-  const { data } = useSelector(selectTaskData);
+  const { taskList } = useSelector(selectTaskData);
 
   const hanleDelete = () => {
-    let tempData = { ...data };
-    let list = data[info.category].filter((el: any) => el.id !== info.id);
+    let tempData = { ...taskList };
+    let list = taskList[task.category].filter((el: any) => el.id !== task.id);
 
-    tempData[info.category] = list;
-    dispatch(updateDataStartAsync(tempData));
+    tempData[task.category] = list;
+    dispatch(updateTaskListStartAsync(tempData));
   };
 
   return (
     <CardStyled
       draggable
-      onTouchStart={() => dispatch(setCard(info))}
-      onDragStart={() => dispatch(setCard(info))}
+      onTouchStart={() => dispatch(setTask(task))}
+      onDragStart={() => dispatch(setTask(task))}
       className="card mt-3 shadow-sm"
-      priority={info.priority}
+      priority={task.priority}
     >
       <div className="card-body">
         <div className="row">
           <div className="col-10">
             <h6 className="card-title font-weight-bolder text-dark">
-              {info.title}
+              {task.title}
             </h6>
           </div>
           <div className="col-2"></div>
         </div>
-        <Link to={"/task-manager/edit/" + info.id}>
-          <BtnEdit onClick={() => dispatch(setCard(info))} className="btn float-right">
+        <Link to={"/task-manager/edit/" + task.id}>
+          <BtnEdit onClick={() => dispatch(setTask(task))} className="btn float-right">
             <i className="fas fa-edit"></i>
           </BtnEdit>
         </Link>
@@ -75,13 +75,13 @@ const Card = ({ info }: any) => {
           <i className="fas fa-trash"></i>
         </BtnDelete>
 
-        <p className="card-text text-muted">{info.description}</p>
-        <Btn className="badge float-right" priority={info.priority}>
-          {info.priority}
+        <p className="card-text text-muted">{task.description}</p>
+        <Btn className="badge float-right" priority={task.priority}>
+          {task.priority}
         </Btn>
       </div>
     </CardStyled>
   );
 };
 
-export default Card;
+export default Task;

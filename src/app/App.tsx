@@ -1,5 +1,5 @@
-import EditCard from "pages/task-manager/EditCard";
-import TaskManagerComponent from "pages/task-manager/task-manager";
+import { EditTask, NewTask } from "pages/task-manager/new-edit-card.page";
+import TaskManagerPage from "pages/task-manager/task-manager.page";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -7,9 +7,9 @@ function App() {
     <div className="container">
 
       <Routes>
-        <Route path="task-manager" element={<TaskManagerComponent />} />
-        <Route path="task-manager/edit/:id" element={<EditCard />} />
-        <Route path="task-manager/new" element={<EditCard />} />
+        <Route path="task-manager" element={<TaskManagerPage />} />
+        <Route path="task-manager/edit/:id" element={<EditTask />} />
+        <Route path="task-manager/new" element={<NewTask />} />
       </Routes>
     </div>
   );

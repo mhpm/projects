@@ -1,40 +1,40 @@
-import DATA from "./taskData";
+import TASK_LIST from "./taskList";
 import {
-  UPDATE_DATA_START,
-  UPDATE_DATA_FAILURE,
-  UPDATE_DATA_SUCCESS,
+  UPDATE_TASK_LIST_START,
+  UPDATE_TASK_LIST_FAILURE,
+  UPDATE_TASK_LIST_SUCCESS,
 } from "./taskTypes";
 
 const INITIAL_STATE = {
-  data: DATA,
-  card: null,
+  taskList: TASK_LIST,
+  task: null,
   isFetching: false,
   errorMessage: undefined,
 };
 
 const taskManagerReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UPDATE_DATA_START:
+    case UPDATE_TASK_LIST_START:
       return {
         ...state,
         isFetching: true,
       };
-    case UPDATE_DATA_SUCCESS:
+    case UPDATE_TASK_LIST_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        data: action.payload,
+        taskList: action.payload,
       };
-    case UPDATE_DATA_FAILURE:
+    case UPDATE_TASK_LIST_FAILURE:
       return {
         ...state,
         isFetching: false,
         errorMessage: action.payload,
       };
-    case "SET_CARD":
+    case "SET_TASK":
       return {
         ...state,
-        card: action.payload,
+        task: action.payload,
       };
     default:
       return state;

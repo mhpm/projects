@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Task from "./Task";
 
 const colors: any = {
   todo: "secondary",
@@ -6,7 +6,7 @@ const colors: any = {
   done: "success",
 };
 
-const CardList = ({ list = [], title, category }: any) => {
+const TaskList = ({ list = [], title, category }: any) => {
   return (
     <div className="mt-4">
       <h5
@@ -14,11 +14,11 @@ const CardList = ({ list = [], title, category }: any) => {
       >
         {title}
       </h5>
-      {list.map((item: any) => (
-        <Card key={item.id} info={item} />
+      {list.map((task: any) => (
+        <Task key={task.id} task={task} />
       ))}
     </div>
   );
 };
 
-export default CardList;
+export default TaskList;

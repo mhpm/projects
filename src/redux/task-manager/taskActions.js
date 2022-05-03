@@ -1,28 +1,28 @@
 import {
-  UPDATE_DATA_START,
-  UPDATE_DATA_FAILURE,
-  UPDATE_DATA_SUCCESS,
+  UPDATE_TASK_LIST_START,
+  UPDATE_TASK_LIST_FAILURE,
+  UPDATE_TASK_LIST_SUCCESS,
 } from "./taskTypes";
 
-export const updateDataStartAsync = (data) => (dispatch) => {
+export const updateTaskListStartAsync = (data) => (dispatch) => {
   dispatch({
-    type: UPDATE_DATA_START,
+    type: UPDATE_TASK_LIST_START,
   });
 
   try {
     dispatch({
-      type: UPDATE_DATA_SUCCESS,
+      type: UPDATE_TASK_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: UPDATE_DATA_FAILURE,
+      type: UPDATE_TASK_LIST_FAILURE,
       payload: error.message,
     });
   }
 };
 
-export const setCard = (card) => ({
-  type: "SET_CARD",
-  payload: card,
+export const setTask = (task) => ({
+  type: "SET_TASK",
+  payload: task,
 });
