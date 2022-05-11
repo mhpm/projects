@@ -2,7 +2,6 @@ import { HTMLAttributes, ReactNode } from "react";
 import "./Button.css";
 
 export interface Props extends HTMLAttributes<HTMLButtonElement> {
-
   primary?: boolean;
   backgroundColor?: string;
   size?: "small" | "medium" | "large";
@@ -18,7 +17,7 @@ const sizes = {
   large: "button_large",
 };
 
-export const Button = ({
+const Button = ({
   primary = false,
   size = "medium",
   label = "button",
@@ -40,3 +39,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button

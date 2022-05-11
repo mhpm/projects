@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ICardIamges, Images } from "./game.contants";
 
-const Game = () => {
+const GamePage = () => {
   const [cardImages] = useState<ICardIamges[]>(Images)
 
   return (
@@ -14,4 +14,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default GamePage;

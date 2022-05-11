@@ -1,7 +1,7 @@
 import { Children, cloneElement } from "react";
 import styled from "styled-components";
 
-const TableContainer = styled.table`
+const Container = styled.table`
   width: 100%;
   text-align: left;
   border-collapse: collapse;
@@ -11,7 +11,7 @@ const TableContainer = styled.table`
   overflow: hidden;
 `;
 
-const TableHeader = styled.thead`
+const Header = styled.thead`
   background-color: ${({ theme }) => theme.colors.primary};
   tr {
     th {
@@ -20,7 +20,7 @@ const TableHeader = styled.thead`
   }
 `;
 
-const TableBody = styled.tbody``;
+const Body = styled.tbody``;
 
 const Tr = styled.tr``;
 
@@ -42,31 +42,31 @@ const Th = styled.th`
 
 const Span = styled.span``;
 
-function Table({ classes, children, ...restProps }: any) {
+const Table = ({ classes, children, ...restProps }: any) => {
   return (
-    <TableContainer className={["table", classes]} {...restProps}>
+    <Container className={["table", classes]} {...restProps}>
       {children}
-    </TableContainer>
+    </Container>
   );
 }
 
-function Header({ classes, children, ...restProps }: any) {
+export const TableHeader = ({ classes, children, ...restProps }: any) => {
   return (
-    <TableHeader className={["table-header", classes]} {...restProps}>
+    <Header className={["table-header", classes]} {...restProps}>
       {children}
-    </TableHeader>
+    </Header>
   );
 }
 
-function Body({ classes, children, ...restProps }: any) {
+export const TableBody = ({ classes, children, ...restProps }: any) => {
   return (
-    <TableBody className={["table-body", classes]} {...restProps}>
+    <Body className={["table-body", classes]} {...restProps}>
       {children}
-    </TableBody>
+    </Body>
   );
 }
 
-function Row({ header, classes, children, ...restProps }: any) {
+export const TableRow = ({ header, classes, children, ...restProps }: any) => {
   if (header)
     return (
       <Tr className={["table-row", classes]} {...restProps}>
@@ -85,7 +85,7 @@ function Row({ header, classes, children, ...restProps }: any) {
     );
 }
 
-const Col = ({ classes, children, ...restProps }: any) => {
+export const TableCol = ({ classes, children, ...restProps }: any) => {
   return (
     <Span className={["span", classes]} {...restProps}>
       {children}
@@ -93,7 +93,4 @@ const Col = ({ classes, children, ...restProps }: any) => {
   );
 };
 
-Table.Header = Header;
-Table.Body = Body;
-
-export { Table, Row, Col };
+export default Table
